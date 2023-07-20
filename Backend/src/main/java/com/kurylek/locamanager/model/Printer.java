@@ -1,5 +1,6 @@
 package com.kurylek.locamanager.model;
 
+import com.kurylek.locamanager.enums.PrinterStatus;
 import com.kurylek.locamanager.enums.PrinterType;
 import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
@@ -12,5 +13,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Printer extends Device{
     private PrinterType printerType;
+    private PrinterStatus printerStatus;
 
 }
