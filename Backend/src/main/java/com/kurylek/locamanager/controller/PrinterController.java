@@ -4,19 +4,16 @@ import com.kurylek.locamanager.model.Printer;
 import com.kurylek.locamanager.service.PrinterService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
-import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Map;
 
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/printer")
+@CrossOrigin("*")
 public class PrinterController {
     private final PrinterService printerService;
 
