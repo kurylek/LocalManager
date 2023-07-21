@@ -1,0 +1,39 @@
+<table>
+    <thead>
+    <tr>
+      <th>Printer ID</th>
+      <th>IP Adress</th>
+      <th>Serial Number</th>
+      <th>Product Number</th>
+      <th>Manufacturer</th>
+      <th>Description</th>
+      <th>Printer Type</th>
+      <th>Printer Status</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let printer of printersList">
+            <td>{{printer.deviceId}}</td>
+            <td>{{printer.ipAddress}}</td>
+            <td>{{printer.serialNumber}}</td>
+            <td>{{printer.productNumber}}</td>
+            <td>{{printer.manufacturer}}</td>
+            <td>{{printer.description}}</td>
+            <td>{{printer.printerType}}</td>
+            <td>{{printer.printerStatus}}</td>
+        </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+        <th>Printer ID</th>
+        <th>IP Adress</th>
+        <th>Serial Number</th>
+        <th>Product Number</th>
+        <th>Manufacturer</th>
+        <th>Description</th>
+        <th>Printer Type</th>
+        <th>Printer Status</th>
+    </tr>
+    </tfoot>
+  </table>
+  
