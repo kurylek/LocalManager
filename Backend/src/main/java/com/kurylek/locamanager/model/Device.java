@@ -3,12 +3,15 @@ package com.kurylek.locamanager.model;
 import com.kurylek.locamanager.enums.Manufacturer;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 @Data
 @Entity
+@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
 public abstract class Device {
@@ -27,8 +30,7 @@ public abstract class Device {
     @NotBlank(message = "Product number cannot be empty")
     private String productNumber;
 
-    @NotBlank(message = "Manufacturer cannot be empty")
-
+    @NotNull(message = "Manufacturer cannot be empty")
     private Manufacturer manufacturer;
 
     private String description;
