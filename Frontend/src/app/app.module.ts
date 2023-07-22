@@ -3,12 +3,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PrinterListComponent } from './components/printer-list/printer-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PrinterListModule } from './components/printer-list/printer-list.module';
 
 @NgModule({
-  declarations: [AppComponent, PrinterListComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, BrowserAnimationsModule],
+  declarations: [AppComponent],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    PrinterListModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
