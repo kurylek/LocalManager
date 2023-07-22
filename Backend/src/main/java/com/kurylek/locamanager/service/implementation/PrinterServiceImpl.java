@@ -40,7 +40,7 @@ public class PrinterServiceImpl implements PrinterService {
         InetAddress address = InetAddress.getByName(printer.getIpAddress());
         printer.setPrinterStatus(address.isReachable(10000) ? PrinterStatus.PRINTER_UP : PrinterStatus.PRINTER_DOWN);
 
-        printerRepository.save(printer);
+        printer = printerRepository.save(printer);
 
         return printer;
     }

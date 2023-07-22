@@ -27,4 +27,15 @@ export class PrinterListComponent {
       }
     );
   }
+
+  pingPrinter(printerId: number): void {
+    this.printerService.pingPrinter(printerId).subscribe(
+      (response) => {
+        this.getPrintersList();
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
 }

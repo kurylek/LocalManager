@@ -1,0 +1,15 @@
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+
+table {
+    list-style-type: none;
+    margin: auto;
+    width: 80%;
+} 
+
+tr {
+    height: 30px;
+    text-align: center;
+}

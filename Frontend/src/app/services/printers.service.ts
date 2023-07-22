@@ -13,4 +13,10 @@ export class PrintersService {
   getPrinters(): Observable<Printer[]> {
     return this.http.get<Printer[]>(environment.apiURL + '/printer/all');
   }
+
+  pingPrinter(printerId: number): Observable<Printer> {
+    return this.http.get<Printer>(
+      environment.apiURL + '/printer/ping/' + printerId
+    );
+  }
 }
