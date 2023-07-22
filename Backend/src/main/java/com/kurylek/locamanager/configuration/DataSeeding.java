@@ -15,8 +15,8 @@ public class DataSeeding {
 
     @PostConstruct
     void setUp() {
-        printerRepository.save(new Printer(null, "10.3.10.1", "ABC123", "AAB#1", Manufacturer.HP, "Printer 1", PrinterType.COLOR));
-        printerRepository.save(new Printer(null, "10.3.10.2", "ABC124", "AAB#1", Manufacturer.HP, "Printer 2", PrinterType.COLOR));
+        printerRepository.save(new Printer(null, "127.0.0.1", "ABC123", "AAB#1", Manufacturer.HP, "Printer 1", PrinterType.COLOR));
+        printerRepository.save(new Printer(null, "192.168.1.1", "ABC124", "AAB#1", Manufacturer.HP, "Printer 2", PrinterType.COLOR));
         printerRepository.save(new Printer(null, "10.3.10.3", "123ABC", "ABB#2", Manufacturer.KONICA_MINOLTA, "Printer 3", PrinterType.BLACK));
     }
 }
