@@ -34,18 +34,30 @@
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Description</th>
       <td mat-cell *matCellDef="let printer">{{ printer.description }}</td>
     </ng-container>
-  
+
     <ng-container matColumnDef="printerType">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Printer Type</th>
       <td mat-cell *matCellDef="let printer">
-        {{printer.printerType}}
+        <span
+          class="dot"
+          [ngClass]="{
+            'type-color': printer.printerType == 'COLOR',
+            'type-black': printer.printerType == 'BLACK'
+          }"
+        ></span>
       </td>
     </ng-container>
   
     <ng-container matColumnDef="printerStatus">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Printer Status</th>
       <td mat-cell *matCellDef="let printer">
-        {{printer.printerStatus}}
+        <span
+          class="dot"
+          [ngClass]="{
+            'status-up': printer.printerStatus == 'PRINTER_UP',
+            'status-down': printer.printerStatus == 'PRINTER_DOWN'
+          }"
+        ></span>
       </td>
     </ng-container>
   

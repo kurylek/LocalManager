@@ -1,0 +1,118 @@
+.dot {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  
+  .status-up {
+    background-color: #2fa51f;
+  }
+  
+  .status-down {
+    background-color: #b30e0e;
+  }
+  
+  .type-color {
+    background: rgb(0, 255, 239);
+    background: linear-gradient(
+      90deg,
+      rgba(0, 255, 239, 1) 0%,
+      rgba(255, 0, 232, 1) 30%,
+      rgba(249, 255, 0, 1) 60%,
+      rgba(0, 0, 0, 1) 100%
+    );
+  }
+  
+  .type-black {
+    background-color: #000000;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #000000;
+  }
+  
+  .mat-column-deviceId {
+    width: 1%;
+  }
+  .mat-column-ipAddress {
+    width: 10%;
+  }
+  .mat-column-printerType {
+    width: 7%;
+    text-align: center;
+  }
+  .mat-column-printerStatus {
+    width: 8%;
+    text-align: center;
+  }
+  .mat-column-actions {
+    width: 10%;
+    text-align: center;
+  }
+  
+  .filter-field {
+    width: 500px;
+  }
+  
+  /* Button css */
+  button {
+    appearance: none;
+    background-color: #fafbfc;
+    border: 1px solid rgba(27, 31, 35, 0.15);
+    border-radius: 6px;
+    box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0,
+      rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+    box-sizing: border-box;
+    color: #24292e;
+    cursor: pointer;
+    display: inline-block;
+    font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial,
+      sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    list-style: none;
+    padding: 6px 16px;
+    position: relative;
+    transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    white-space: nowrap;
+    word-wrap: break-word;
+  }
+  
+  button:hover {
+    background-color: #f3f4f6;
+    text-decoration: none;
+    transition-duration: 0.1s;
+  }
+  
+  button:disabled {
+    background-color: #fafbfc;
+    border-color: rgba(27, 31, 35, 0.15);
+    color: #959da5;
+    cursor: default;
+  }
+  
+  button:active {
+    background-color: #edeff2;
+    box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
+    transition: none 0s;
+  }
+  
+  button:focus {
+    outline: 1px transparent;
+  }
+  
+  button:before {
+    display: none;
+  }
+  
+  button:-webkit-details-marker {
+    display: none;
+  }
+  
