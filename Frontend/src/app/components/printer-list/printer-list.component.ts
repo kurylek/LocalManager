@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { PrintersService } from '../../services/printers.service';
 import { Printer } from '../../model/printer.model';
-import { Observable } from 'rxjs';
+import { MatTableDataSource } from '@angular/material/table';
+import { LiveAnnouncer } from '@angular/cdk/a11y';
+import { MatSort, Sort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-printer-list',
@@ -9,9 +11,25 @@ import { Observable } from 'rxjs';
   styleUrls: ['./printer-list.component.css'],
 })
 export class PrinterListComponent {
-  printersList!: Printer[];
+  dataSource = new MatTableDataSource<Printer>();
+  displayedColumns: string[] = [
+    'deviceId',
+    'ipAddress',
+    'serialNumber',
+    'productNumber',
+    'manufacturer',
+    'description',
+    'printerType',
+    'printerStatus',
+    'actions',
+  ];
 
-  constructor(private printerService: PrintersService) {}
+  constructor(
+    private printerService: PrintersService,
+    private _liveAnnouncer: LiveAnnouncer
+  ) {}
+
+  @ViewChild(MatSort) sort!: MatSort;
 
   ngOnInit(): void {
     this.getPrintersList();
@@ -20,7 +38,8 @@ export class PrinterListComponent {
   getPrintersList(): void {
     this.printerService.getPrinters().subscribe(
       (response) => {
-        this.printersList = response;
+        this.dataSource = new MatTableDataSource<Printer>(response);
+        this.dataSource.sort = this.sort;
       },
       (error) => {
         console.log(error);
@@ -37,5 +56,13 @@ export class PrinterListComponent {
         console.log(error);
       }
     );
+  }
+
+  announceSortChange(sortState: Sort) {
+    if (sortState.direction) {
+      this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
+    } else {
+      this._liveAnnouncer.announce('Sorting cleared');
+    }
   }
 }
