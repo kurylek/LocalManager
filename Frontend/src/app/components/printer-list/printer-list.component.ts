@@ -4,6 +4,7 @@ import { Printer } from '../../model/printer.model';
 import { MatTableDataSource } from '@angular/material/table';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { MatSort, Sort } from '@angular/material/sort';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-printer-list',
@@ -30,6 +31,7 @@ export class PrinterListComponent {
   ) {}
 
   @ViewChild(MatSort) sort!: MatSort;
+  @ViewChild(MatPaginator) paginator: any = MatPaginator;
 
   ngOnInit(): void {
     this.getPrintersList();
