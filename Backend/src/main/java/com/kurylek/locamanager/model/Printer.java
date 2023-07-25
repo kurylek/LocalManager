@@ -21,6 +21,5 @@ public class Printer extends Device{
     public Printer(Long deviceId, String ipAddress, String serialNumber, String productNumber, Manufacturer manufacturer, String description, PrinterType printerType) {
         super(deviceId, ipAddress, serialNumber, productNumber, manufacturer, description);
         this.printerType = printerType;
-        this.printerStatus = PrinterStatus.PRINTER_DOWN;
     }
 }
