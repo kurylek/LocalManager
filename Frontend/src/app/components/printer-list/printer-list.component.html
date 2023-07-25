@@ -9,6 +9,9 @@
     class="mat-elevation-z8"
     matSort
     (matSortChange)="announceSortChange($event)"
+    matSortActive="deviceId"
+    matSortDirection="asc"
+    matSortDisableClear
 >
     <ng-container matColumnDef="deviceId">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
