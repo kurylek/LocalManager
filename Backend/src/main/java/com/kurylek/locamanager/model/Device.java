@@ -21,9 +21,6 @@ public abstract class Device {
     private Long deviceId;
 
     @Column(unique = true)
-    private String ipAddress;
-
-    @Column(unique = true)
     @NotBlank(message = "Serial number cannot be empty")
     private String serialNumber;
 
