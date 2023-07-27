@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PrinterListModule } from './components/printer-list/printer-list.module';
 import { HeaderComponent } from './components/header/header.component';
 import { OrdersComponent } from './components/orders/orders.component';
+import { ComputerListModule } from './components/computer-list/computer-list.module';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, OrdersComponent],
@@ -16,6 +17,7 @@ import { OrdersComponent } from './components/orders/orders.component';
     HttpClientModule,
     BrowserAnimationsModule,
     PrinterListModule,
+    ComputerListModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,0 +1,67 @@
+<mat-form-field class="filter-field">
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" #input />
+</mat-form-field>
+
+<table
+  mat-table
+  [dataSource]="dataSource"
+  class="mat-elevation-z8"
+  matSort
+  (matSortChange)="announceSortChange($event)"
+  matSortActive="deviceId"
+  matSortDirection="asc"
+  matSortDisableClear
+>
+  <ng-container matColumnDef="deviceId">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+    <td mat-cell *matCellDef="let computer">{{ computer.deviceId }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="serialNumber">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Serial Number</th>
+    <td mat-cell *matCellDef="let computer">{{ computer.serialNumber }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="productNumber">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Product Number</th>
+    <td mat-cell *matCellDef="let computer">{{ computer.productNumber }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="manufacturer">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Manufacturer</th>
+    <td mat-cell *matCellDef="let computer">{{ computer.manufacturer }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Description</th>
+    <td mat-cell *matCellDef="let computer">{{ computer.description }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="computerType">
+    <th mat-header-cell *matHeaderCellDef>Computer Type</th>
+    <td mat-cell *matCellDef="let computer">{{ computer.computerType }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="domainName">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Domain Name</th>
+    <td mat-cell *matCellDef="let computer">{{ computer.domainName }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef>Actions</th>
+    <td mat-cell *matCellDef="let computer" class="actions">
+      <button>Edit</button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+
+<mat-paginator
+  [pageSizeOptions]="[10, 20, 50, 100]"
+  showFirstLastButtons
+  aria-label="Select page of periodic elements"
+>
+</mat-paginator>
