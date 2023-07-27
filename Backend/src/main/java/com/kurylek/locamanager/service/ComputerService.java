@@ -7,7 +7,7 @@ public interface ComputerService {
 
     List<Computer> getAll();
     Computer getById(Long id);
-    Computer create(Computer printer);
-    Computer update(Computer printer);
+    Computer create(Computer computer);
+    Computer update(Computer computer);
     Boolean delete(Long id);
 }
