@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Computer extends Device{
 
-    @NotBlank(message = "Computer type cannot be empty")
+    @NotNull(message = "Computer type cannot be empty")
     private ComputerType computerType;
 
     @Column(unique = true)
