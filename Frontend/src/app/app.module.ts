@@ -8,7 +8,6 @@ import { PrinterListModule } from './components/printer-list/printer-list.module
 import { HeaderComponent } from './components/header/header.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { ComputerListModule } from './components/computer-list/computer-list.module';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, OrdersComponent],
@@ -19,7 +18,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserAnimationsModule,
     PrinterListModule,
     ComputerListModule,
-    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

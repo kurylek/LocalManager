@@ -5,6 +5,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-printer-list',
@@ -24,10 +26,13 @@ export class PrinterListComponent {
     'printerStatus',
     'actions',
   ];
+  printerFormGroup!: FormGroup;
 
   constructor(
     private printerService: PrintersService,
-    private _liveAnnouncer: LiveAnnouncer
+    private _liveAnnouncer: LiveAnnouncer,
+    private fb: FormBuilder,
+    private modalService: NgbModal
   ) {}
 
   @ViewChild(MatSort) sort!: MatSort;
@@ -35,6 +40,10 @@ export class PrinterListComponent {
 
   ngOnInit(): void {
     this.getPrintersList();
+    this.printerFormGroup = this.fb.group({
+      deviceId: [''],
+      ipAddress: ['', Validators.required],
+    });
   }
 
   getPrintersList(): void {
@@ -71,5 +80,18 @@ export class PrinterListComponent {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  getModal(content: any) {
+    this.modalService.open(content, { size: 'xl' });
+  }
+
+  onCloseModal(modal: any) {
+    modal.close();
+    this.printerFormGroup.reset();
+  }
+
+  onSaveModal(modal: any) {
+    console.log(this.printerFormGroup.value);
   }
 }

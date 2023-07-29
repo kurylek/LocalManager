@@ -6,6 +6,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [PrinterListComponent],
@@ -16,6 +17,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatPaginatorModule,
     MatInputModule,
     MatFormFieldModule,
+    ReactiveFormsModule,
   ],
   exports: [PrinterListComponent],
 })
