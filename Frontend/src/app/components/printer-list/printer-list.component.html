@@ -1,13 +1,39 @@
 <ng-template #content let-modal>
   <form [formGroup]="printerFormGroup" method="post">
     <mat-form-field>
-      <mat-label>Device ID</mat-label>
-      <input matInput type="text" formControlName="deviceId" />
-    </mat-form-field>
-    <mat-form-field>
       <mat-label>IP Address</mat-label>
       <input matInput type="text" formControlName="ipAddress" />
     </mat-form-field>
+    <mat-form-field>
+      <mat-label>Serial Number</mat-label>
+      <input matInput type="text" formControlName="serialNumber" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Product Number</mat-label>
+      <input matInput type="text" formControlName="productNumber" />
+    </mat-form-field>
+    <label>Manufacturer</label>
+    <mat-radio-group formControlName="manufacturer">
+      <mat-radio-button
+        *ngFor="let manufacturer of manufacturers"
+        [value]="manufacturer"
+      >
+        {{ manufacturer }}
+      </mat-radio-button>
+    </mat-radio-group>
+    <mat-form-field>
+      <mat-label>Description</mat-label>
+      <input matInput type="text" formControlName="description" />
+    </mat-form-field>
+    <label>Printer Type</label>
+    <mat-radio-group formControlName="printerType">
+      <mat-radio-button
+        *ngFor="let printerType of printerTypes"
+        [value]="printerType"
+      >
+        {{ printerType }}
+      </mat-radio-button>
+    </mat-radio-group>
   </form>
   <div>
     <button type="button" (click)="onCloseModal(modal)">Close</button>

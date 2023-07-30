@@ -27,6 +27,8 @@ export class PrinterListComponent {
     'actions',
   ];
   printerFormGroup!: FormGroup;
+  printerTypes: string[] = ['COLOR', 'BLACK'];
+  manufacturers: string[] = ['HP', 'KONICA_MINOLTA'];
 
   constructor(
     private printerService: PrintersService,
@@ -41,8 +43,12 @@ export class PrinterListComponent {
   ngOnInit(): void {
     this.getPrintersList();
     this.printerFormGroup = this.fb.group({
-      deviceId: [''],
       ipAddress: ['', Validators.required],
+      serialNumber: ['', Validators.required],
+      productNumber: ['', Validators.required],
+      manufacturer: ['', Validators.required],
+      description: [''],
+      printerType: ['', Validators.required],
     });
   }
 
@@ -92,6 +98,16 @@ export class PrinterListComponent {
   }
 
   onSaveModal(modal: any) {
-    console.log(this.printerFormGroup.value);
+    if (this.printerFormGroup.invalid) return;
+    this.printerService.savePrinter(this.printerFormGroup.value).subscribe({
+      next: () => {
+        this.getPrintersList();
+        this.printerFormGroup.reset();
+        modal.close();
+      },
+      error: (err) => {
+        console.log(err.message);
+      },
+    });
   }
 }

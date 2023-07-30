@@ -19,4 +19,11 @@ export class PrintersService {
       environment.apiURL + '/printer/ping/' + printerId
     );
   }
+
+  savePrinter(printer: Printer): Observable<Printer> {
+    return this.http.post<Printer>(
+      environment.apiURL + '/printer/save',
+      printer
+    );
+  }
 }
